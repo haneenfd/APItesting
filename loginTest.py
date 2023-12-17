@@ -1,9 +1,8 @@
 import requests
 import json
 from globalVariables import base_url, loginAPI
-
+url = base_url + loginAPI
 def valid_login_test():
-    url = base_url + loginAPI
     data = {
         "username": "ptuk.en",
         "password":"123"
@@ -12,13 +11,12 @@ def valid_login_test():
     response = requests.post(url, json=data)
     json_data = response.json()
     for key in expected_response_body:
-        assert key in expected_response_body, f"Expected key '{key}' in the response body"
+        assert key in json_data, f"Expected key '{key}' in the response body"
     access_token = json_data["accessToken"]
     assert access_token, "Access token should not be empty"
     assert response.status_code == 200
 
 def invalid_username_test():
-    url = base_url + loginAPI
     data = {
         "username": "hajar",
         "password":"123"
@@ -27,7 +25,6 @@ def invalid_username_test():
     assert response.status_code == 401
 
 def invalid_password_test():
-    url = base_url + loginAPI
     data = {
         "username": "ptuk.en",
         "password":"124"
@@ -36,7 +33,6 @@ def invalid_password_test():
     assert response.status_code == 401
 
 def missing_attribute_test():
-    url = base_url + loginAPI
     data = [{
         "password":"124"
     },{
@@ -46,15 +42,16 @@ def missing_attribute_test():
         response = requests.post(url, json=entry)
         assert response.status_code == 500
 
-def get_access_token(username, password):
-    url = base_url + loginAPI
+def get_header(username, password):
     data = {
         "username": username,
         "password":password
     }
     response = requests.post(url, json=data)
     json_data = response.json()
-    return json_data["accessToken"]
+    access_token = json_data["accessToken"]
+    headers = {'access-token': access_token}
+    return headers
 
 valid_login_test()
 invalid_username_test()
