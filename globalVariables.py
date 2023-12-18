@@ -4,6 +4,8 @@ addCompanyAPI = '/company/company'
 addBranchAPI='/company/branch'
 getCompanyAPI = '/company/company'
 getBranchesAPI = '/company/branches'
+getCompanyTrainersAPI = '/company/trainers'
 universityUsername = 'ptuk.en'
+companyUsername= 'asal.ra'
 password = '123'
 
