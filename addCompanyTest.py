@@ -1,5 +1,5 @@
 import requests
-from globalVariables import base_url, addCompanyAPI,universityUsername,password,jsonScheme
+from globalVariables import base_url, addCompanyAPI,universityUsername,password
 from loginTest import get_header
 url = base_url + addCompanyAPI
 
