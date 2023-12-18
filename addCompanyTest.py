@@ -2,41 +2,6 @@ import requests
 from globalVariables import base_url, addCompanyAPI,universityUsername,password,jsonScheme
 from loginTest import get_header
 url = base_url + addCompanyAPI
-# def valid_company_data_test():
-#     data = {
-#         "id": 134,
-#         "name": "Haneen Company",
-#         "email": "hanCo@gmail.com",
-#         "location": "Nablus",
-#         "phoneNumber": "1234567890",
-#         "managerName": "Haneen"
-#         }
-#     headers = get_header(universityUsername,password)
-#     response = requests.post(url, json=data, headers=headers)
-#     json_data = response.json()
-#     assert response.status_code == 200
-#     expected_response_body = ["success", "status", "message", "data"]
-#     for key in expected_response_body:
-#         assert key in json_data, f"Expected key '{key}' in the response body"
-#     assert json_data['success'] == True
-
-# def addExistingCompany():
-#     data = {
-#         "id": 1,
-#         "name": "asal",
-#         "email": "hanCo@gmail.com",
-#         "location": "Nablus",
-#         "phoneNumber": "1234567890",
-#         "managerName": "Haneen"
-#         }
-#     headers = get_header(universityUsername,password)
-#     response = requests.post(url, json=data, headers=headers)
-#     json_data = response.json()
-#     assert response.status_code == 400
-#     expected_response_body = ["success", "status", "message", "data"]
-#     for key in expected_response_body:
-#         assert key in json_data, f"Expected key '{key}' in the response body"
-#     assert json_data['success'] == False
 
 def makeData(id,name,email,location,phoneNumber,managerName):
     data = {
