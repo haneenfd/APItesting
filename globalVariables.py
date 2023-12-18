@@ -3,6 +3,7 @@ loginAPI = '/auth/login'
 addCompanyAPI = '/company/company'
 addBranchAPI='/company/branch'
 getCompanyAPI = '/company/company'
+getBranchesAPI = '/company/branches'
 universityUsername = 'ptuk.en'
 password = '123'
 
